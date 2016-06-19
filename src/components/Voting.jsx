@@ -1,22 +1,14 @@
 import React from 'react';
+import Winner from './Winner.jsx';
+import Vote from './Vote.jsx';
 
-const style = {
-  color: ''
-}
 export default React.createClass({
-  getPair: function() {
-    return this.props.pair || [];
-  },
   render: function () {
     return (
-      <div className="voting">
-      {
-        this.getPair().map(entry =>
-          <button style={style}>
-          <h1>{entry}</h1>
-          </button>
-        )
-      }
+      <div>
+      {this.props.winner ?
+        <Winner ref="winner" winner={this.props.winner} /> :
+        <Vote {...this.props}/>}
       </div>
     );
   }
